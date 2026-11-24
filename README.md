@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Muhammad Daffa Ar-Rasyid — Personal Studio Portfolio
 
-## Getting Started
+Portofolio kreatif modern terinspirasi oleh estetika Clean Studio & Packaging Showcase (seperti [Nice Crate](https://nicecrate.com/)), dibangun menggunakan teknologi web termutakhir: **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, **GSAP (ScrollTrigger)**, **Three.js (WebGL 3D)**, dan **Lenis Smooth Scroll**.
 
-First, run the development server:
+---
 
+## ✨ Fitur & Arsitektur Utama
+
+1. **Preloader (Nice Crate Inspired)**:
+   - Penghitung persentase numerik cepat (`00%` → `100%`) dengan tipografi monospaced.
+   - Tirai penutup (*curtain shutter*) yang meluncur ke atas dengan easing halus (`power4.inOut`), memicu kemunculan konten Hero secara sinkron.
+
+2. **Dual Theme (Light & Dark) dengan Smooth Transition**:
+   - Tema utama: **Warm Studio Light Paper** (`#f6f5f1`).
+   - Opsi beralih ke: **Dark Studio Titanium** (`#0c0d10`).
+   - Animasi transisi sirkular sweep (`View Transitions API` + fallback GSAP).
+
+3. **Hero Section dengan Interactive 3D WebGL**:
+   - Split-line typography reveal: *"Hello! I'm Muhammad Daffa Ar-Rasyid."*
+   - Patung 3D geometris Three.js prosedural (*Torus Knot & Wireframe Orbit with Particles*) yang berputar dan melayang merespons pergerakan kursor mouse.
+
+4. **About Me dengan Text Scrub Reveal**:
+   - Teks narasi besar dua kolom ala majalah/editorial arsitektural.
+   - Kata-kata menyorot dari abu-abu redup menjadi warna kontras seiring pergerakan scroll pengguna (*GSAP ScrollTrigger scrub*).
+   - Kartu spesifikasi latar belakang akademis & filosofi rekayasa perangkat lunak.
+
+5. **Experience Section dengan Rotary Dial / Compass**:
+   - Terinspirasi oleh dial jarum Nice Crate: dial jam/kompas presisi di sisi kiri yang berputar (*rotating needle*) mengikuti scroll.
+   - Kartu pengalaman kerja di sisi kanan yang menyorot dan terhubung dengan posisi penunjuk dial.
+
+6. **Tech Stack dengan 3D Interactive Sphere**:
+   - Tag cloud Three.js bola 3D interaktif berbasis *Fibonacci sphere lattice*.
+   - User dapat menggeser/memutar (*drag to spin*) bola 3D tersebut secara bebas.
+   - Filter tab detail (Web Architecture, AI & Machine Learning, Systems & Tools).
+
+7. **Project Showcase (Filtered Archives)**:
+   - Kategori filter: `All`, `Website`, `AI/ML`, dan `Mobile`.
+   - Kartu preview visual bergaya studio box, indikator metrik performa, tags teknologi, serta tombol aksi ke Live Demo dan Source Code GitHub.
+
+8. **Achievements (5+ Milestone Cards)**:
+   - 6 milestone terverifikasi (Juara Hackathon AI Nasional, Peneliti/Penulis Jurnal Machine Learning, Desain UI Web Terbaik, dsb.).
+
+9. **Contact & Colophon (Footer)**:
+   - Headline CTA interaktif.
+   - Tombol salin email satu klik (*instant clipboard copy*) dan direct mailto.
+   - Jam lokal Jakarta (*WIB / UTC+7*) yang berdetak *real-time*.
+   - Custom magnetic cursor untuk perangkat desktop.
+
+---
+
+## 🚀 Cara Menjalankan Proyek
+
+Buka terminal pada direktori proyek:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd C:\Users\Daffa\.gemini\antigravity\scratch\daffa-portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1. Mode Development:
+```bash
+npm run dev
+```
+Buka browser di [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. Mode Production Build:
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📁 Struktur Direktori
 
-To learn more about Next.js, take a look at the following resources:
+```text
+src/
+├── app/
+│   ├── globals.css          # CSS Variables (Light/Dark), grid pattern, utilities
+│   ├── layout.tsx           # Root Layout & Metadata
+│   └── page.tsx             # Main Portfolio Page Assembler
+├── components/
+│   ├── Preloader.tsx        # Nice Crate percentage counter & curtain slide
+│   ├── Navbar.tsx           # Floating header, menu, status & theme toggle
+│   ├── Hero.tsx             # Headline reveal, subtext, CTA & canvas wrapper
+│   ├── HeroCanvas.tsx       # Three.js interactive 3D Torus Knot sculpture
+│   ├── About.tsx            # Editorial 2-column scrub text reveal & specs
+│   ├── Experience.tsx       # Rotary Chrono Dial + timeline card stack
+│   ├── TechStack.tsx        # Tabs & detailed tech competencies
+│   ├── TechStackCanvas.tsx  # Three.js 3D spherical tag cloud (drag to orbit)
+│   ├── Projects.tsx         # Category filters (Web, AI/ML, Mobile) & cards
+│   ├── Achievements.tsx     # 5+ verified awards & research ledger
+│   ├── Contact.tsx          # CTA, live Jakarta clock, links & copy email
+│   ├── CustomCursor.tsx     # Magnetic trailing dot & ring cursor
+│   └── SmoothScroll.tsx     # Lenis smooth scroll provider + GSAP ticker
+└── lib/
+    └── data.ts              # Data konfigurasi profil, proyek, & pengalaman
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎨 Menyesuaikan Data Diri & Portofolio
+Semua data teks, riwayat pengalaman, daftar proyek, pencapaian, dan tautan sosial dapat Anda ubah dengan mudah di file:
+`src/lib/data.ts`
